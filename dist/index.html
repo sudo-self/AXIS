@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AXIS | Aligned Integrated Syntax</title>
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/assets/favicon-DRzHI6gf.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon-cKqW0ys7.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,8 +33,9 @@
             color: #e5e7eb;
             overflow-x: hidden;
         }
-
+        
         /* Grid Background */
+        
         .grid-bg {
             position: fixed;
             top: 0;
@@ -48,8 +49,9 @@
             pointer-events: none;
             z-index: 0;
         }
-
+        
         /* Glowing Orbs */
+        
         .glow-orb {
             position: fixed;
             border-radius: 50%;
@@ -57,6 +59,7 @@
             z-index: 0;
             opacity: 0.4;
         }
+        
         .glow-orb-1 {
             top: -10%;
             left: -10%;
@@ -65,6 +68,7 @@
             background: radial-gradient(circle, rgba(34, 211, 238, 0.3), transparent 70%);
             animation: float 10s infinite ease-in-out;
         }
+        
         .glow-orb-2 {
             bottom: -10%;
             right: -10%;
@@ -73,13 +77,14 @@
             background: radial-gradient(circle, rgba(236, 72, 153, 0.2), transparent 70%);
             animation: float 15s infinite ease-in-out reverse;
         }
-
+        
         @keyframes float {
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(30px, -30px); }
         }
-
+        
         /* Glass Button */
+        
         .glass-button {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
@@ -95,49 +100,59 @@
             position: relative;
             overflow: hidden;
         }
+        
         .glass-button:hover:not(:disabled) {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(34, 211, 238, 0.5);
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
             transform: translateY(-1px);
         }
+        
         .glass-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
-
+        
         /* Apply Button Specifics */
+        
         .apply-button {
             background: rgba(34, 211, 238, 0.1);
             border-color: rgba(34, 211, 238, 0.3);
         }
+        
         .apply-button:hover:not(:disabled) {
             background: rgba(34, 211, 238, 0.2);
             box-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
         }
-
+        
         /* Title Glow */
+        
         .title-glow {
             text-shadow: 0 0 40px rgba(34, 211, 238, 0.3);
         }
-
+        
         /* Scrollbar */
+        
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
+        
         ::-webkit-scrollbar-track {
             background: transparent; 
         }
+        
         ::-webkit-scrollbar-thumb {
             background: #333; 
             border-radius: 3px;
         }
+        
         ::-webkit-scrollbar-thumb:hover {
             background: #555; 
         }
-
+        
         /* Confetti */
+        
         .confetti {
             position: absolute;
             width: 6px;
@@ -147,16 +162,20 @@
             pointer-events: none;
             z-index: 50;
         }
+        
         @keyframes pop {
             0% { transform: translate(0, 0) scale(1); opacity: 1; }
             100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
         }
-
+        
         /* Code Block */
+        
         .code-font {
             font-family: 'JetBrains Mono', monospace;
         }
     </style>
+
+<link rel="stylesheet" href="/index.css">
     <script type="importmap">
 {
   "imports": {
@@ -169,10 +188,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <script type="module" crossorigin src="/assets/index-BwyWbOlL.js"></script>
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
