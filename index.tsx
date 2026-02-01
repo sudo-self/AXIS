@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { GoogleGenAI } from "@google/genai";
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Github } from 'lucide-react';
 
 // --- Data ---
 const LANGUAGES = [
@@ -257,6 +257,31 @@ const App = () => {
 
       {/* Header */}
       <div className="mt-10 flex flex-col items-center justify-center relative z-20">
+        {/* Logo Gemini - Top Left */}
+        <a href="/">
+          <img src="./logogemini.svg" alt="Logo Gemini" className="absolute top-0 left-4 sm:left-8 w-16 h-16" />
+        </a>
+        
+        {/* GitHub Star Button */}
+        <div className="absolute top-1 right-36 sm:right-44">
+          <a className="github-button" href="https://github.com/sudo-self/AXIS" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-star" data-size="large" aria-label="Star sudo-self/AXIS on GitHub">Star</a>
+        </div>
+        
+        {/* GitHub Fork Button */}
+        <div className="absolute top-1 right-20 sm:right-24">
+          <a className="github-button" href="https://github.com/sudo-self/AXIS/fork" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork sudo-self/AXIS on GitHub">Fork</a>
+        </div>
+        
+        {/* GitHub Icon - Top Right */}
+        <a 
+          href="https://github.com/sudo-self/AXIS" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="absolute top-0 right-4 sm:right-8 p-2 rounded-lg bg-black/20 border border-gray-700/50 hover:border-gray-500 transition-colors group"
+        >
+          <Github className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
+        
         <div ref={titleRef} className="relative">
             <h1 className="title-glow bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-600 bg-clip-text text-6xl font-black text-transparent sm:text-7xl tracking-tighter cursor-default select-none">
             AXIS
@@ -327,9 +352,10 @@ const App = () => {
 
       {/* Footer */}
       <footer className="text-center pb-6 z-20">
-         <div className="inline-flex items-center gap-2 font-mono text-sm font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-            G3 / GEMINI PROTOCOL
-         </div>
+         <a href="https://axis-code.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-mono text-sm font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
+            <img src="./gemini.svg" alt="Gemini" className="w-4 h-4" />
+            AXIS CODE
+         </a>
       </footer>
 
       {toast && <Toast message={toast} onClose={() => setToast('')} />}
