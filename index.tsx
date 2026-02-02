@@ -365,7 +365,7 @@ const App = () => {
                     readOnly={loading}
                 />
             </div>
-            <button className="glass-button w-full sm:w-32 mx-auto" onClick={handleClear} disabled={!inputCode || loading}>
+            <button className="glass-button w-24 text-sm" onClick={handleClear} disabled={!inputCode || loading}>
               Clear
             </button>
         </div>
@@ -386,7 +386,7 @@ const App = () => {
                     placeholder="// Translation will appear here..."
                 />
             </div>
-            <button className="glass-button w-full sm:w-32 mx-auto" onClick={handleCopy} disabled={!outputCode || loading}>
+            <button className="glass-button w-24 text-sm" onClick={handleCopy} disabled={!outputCode || loading}>
               Copy
             </button>
         </div>
