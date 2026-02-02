@@ -100,19 +100,31 @@ const CodeEditor = ({
   readOnly?: boolean;
   placeholder?: string;
 }) => {
+  const highlightCode = (text: string) => {
+    return text
+      .replace(/\b(function|const|let|var|if|else|for|while|return|class|import|export|from|async|await|try|catch|throw|new)\b/g, '<span style="color:#22d3ee">$1</span>')
+      .replace(/\b(true|false|null|undefined)\b/g, '<span style="color:#ec4899">$1</span>')
+      .replace(/\b\d+\b/g, '<span style="color:#9333ea">$&</span>')
+      .replace(/(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g, '<span style="color:#10b981">$&</span>')
+      .replace(/\/\/.*$/gm, '<span style="color:#6b7280">$&</span>')
+      .replace(/\/\*[\s\S]*?\*\//g, '<span style="color:#6b7280">$&</span>');
+  };
+
   return (
-    <textarea
-      value={code}
-      onChange={(e) => onChange && onChange(e.target.value)}
-      readOnly={readOnly}
-      placeholder={placeholder}
-      className={`
-        absolute inset-0 w-full h-full bg-transparent text-gray-300 p-4 font-mono text-sm resize-none focus:outline-none 
-        placeholder-gray-700 leading-relaxed overflow-auto custom-scrollbar
-        ${readOnly ? 'cursor-text' : 'cursor-text'}
-      `}
-      spellCheck={false}
-    />
+    <div className="absolute inset-0 w-full h-full">
+      <pre 
+        className="absolute inset-0 w-full h-full bg-transparent text-gray-300 p-4 font-mono text-sm leading-relaxed overflow-auto custom-scrollbar pointer-events-none whitespace-pre-wrap break-words"
+        dangerouslySetInnerHTML={{ __html: code ? highlightCode(code) : '' }}
+      />
+      <textarea
+        value={code}
+        onChange={(e) => onChange && onChange(e.target.value)}
+        readOnly={readOnly}
+        placeholder={placeholder}
+        className="absolute inset-0 w-full h-full bg-transparent text-transparent p-4 font-mono text-sm resize-none focus:outline-none placeholder-gray-700 leading-relaxed overflow-auto custom-scrollbar caret-white"
+        spellCheck={false}
+      />
+    </div>
   );
 };
 
@@ -262,6 +274,22 @@ const App = () => {
     setToast('File dispatched successfully.');
   };
 
+  const handleCopy = async () => {
+    if (outputCode) {
+      try {
+        await navigator.clipboard.writeText(outputCode);
+        setToast('Code copied to clipboard!');
+      } catch (err) {
+        setToast('Failed to copy code');
+      }
+    }
+  };
+
+  const handleClear = () => {
+    setInputCode('');
+    setToast('Input cleared');
+  };
+
   return (
     <div className="relative min-h-screen flex flex-col z-10">
       <div className="grid-bg" />
@@ -337,6 +365,9 @@ const App = () => {
                     readOnly={loading}
                 />
             </div>
+            <button className="glass-button w-full sm:w-32 mx-auto" onClick={handleClear} disabled={!inputCode || loading}>
+              Clear
+            </button>
         </div>
 
         {/* Output Column */}
@@ -355,6 +386,9 @@ const App = () => {
                     placeholder="// Translation will appear here..."
                 />
             </div>
+            <button className="glass-button w-full sm:w-32 mx-auto" onClick={handleCopy} disabled={!outputCode || loading}>
+              Copy
+            </button>
         </div>
       </div>
 
