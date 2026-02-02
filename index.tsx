@@ -360,6 +360,9 @@ const App = () => {
 
       {/* Footer */}
       <footer className="text-center pb-6 z-20">
+         <div className="mb-4 font-mono text-sm text-gray-400">
+           axis.jessejesse.com
+         </div>
          <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" className="inline-block">
            <img src="./logogemini.svg" alt="Logo Gemini" className="w-20 h-20 mx-auto" />
          </a>
