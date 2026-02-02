@@ -1,13 +1,15 @@
 FROM node:18-alpine
 
+RUN npm install -g pnpm
+
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install --omit=dev
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --prod --frozen-lockfile
 
 COPY . .
-RUN npm run build
+RUN pnpm build
 
 EXPOSE 4173
 
-CMD ["npm", "run", "preview"]
+CMD ["pnpm", "preview"]
