@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       preview: {
         host: '0.0.0.0',
         port: 8080,
-        allowedHosts: ['all']
+        allowedHosts: ['all', 'axis-959399329299.us-central1.run.app']
       },
       plugins: [react()],
       define: {
