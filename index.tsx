@@ -281,13 +281,8 @@ const App = () => {
         </a>
         
         {/* GitHub Star Button */}
-        <div className="absolute top-1 right-20 sm:right-24">
-          <a className="github-button" href="https://github.com/sudo-self/AXIS" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-star" data-size="large" aria-label="Star sudo-self/AXIS on GitHub">Star</a>
-        </div>
-        
-        {/* GitHub Fork Button */}
         <div className="absolute top-1 right-2 sm:right-4">
-          <a className="github-button" href="https://github.com/sudo-self/AXIS/fork" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork sudo-self/AXIS on GitHub">Fork</a>
+          <a className="github-button" href="https://github.com/sudo-self/AXIS" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-star" data-size="large" aria-label="Star sudo-self/AXIS on GitHub">Star</a>
         </div>
         
         <div ref={titleRef} className="relative">
