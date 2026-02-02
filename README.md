@@ -12,6 +12,8 @@ View your app in AI Studio: https://ai.studio/apps/drive/1wgsuEs-uDMaUYSg_2C68kU
 
 **Prerequisites:** Node.js and pnpm
 
+Ready for deployment!
+
 
 1. Install dependencies:
    `npm install`
