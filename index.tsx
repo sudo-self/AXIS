@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { GoogleGenAI } from "@google/genai";
-import { ChevronDown, Github } from 'lucide-react';
+import { ChevronDown, Github, Star } from 'lucide-react';
 
 // --- Data ---
 const LANGUAGES = [
@@ -281,9 +281,14 @@ const App = () => {
         </a>
         
         {/* GitHub Star Button */}
-        <div className="absolute top-1 right-2 sm:right-4">
-          <a className="github-button" href="https://github.com/sudo-self/AXIS" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark_high_contrast;" data-icon="octicon-star" data-size="large" aria-label="Star sudo-self/AXIS on GitHub">Star</a>
-        </div>
+        <a 
+          href="https://github.com/sudo-self/AXIS" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="absolute top-0 right-4 sm:right-8 p-2 rounded-lg bg-black/20 border border-gray-700/50 hover:border-gray-500 transition-colors group"
+        >
+          <Star className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
         
         <div ref={titleRef} className="relative">
             <h1 className="title-glow bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-600 bg-clip-text text-6xl font-black text-transparent sm:text-7xl tracking-tighter cursor-default select-none">
